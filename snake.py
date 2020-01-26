@@ -22,10 +22,8 @@ def run_game():
 	#start main loop for the game
 	while True:
 		#watch for keyboard / mouse input
-		Gf.check_event()
+		Gf.check_event(screen, sn_settings, snake)
 		#displaying screen objects
 		Gf.update(screen, sn_settings, snake)
-
-
 
 run_game()
