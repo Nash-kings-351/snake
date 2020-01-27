@@ -5,6 +5,7 @@ class Settings():
 		#colors
 		blue = (0,0,255)
 		red = (255,0,0)
+		green=(0,255,0)
 		#screen
 		self.screen_width = 1200
 		self.screen_height= 600
@@ -17,8 +18,15 @@ class Settings():
 		self.snake_speed =1
 		self.snake_rect_x = 600
 		self.snake_rect_y = 300
-		self.snake_width  = 3
-		self.snake_height = 3
+		self.snake_width  = 15
+		self.snake_height = 15
 		#snake default moving up
 		self.change_y = (-1* self.snake_speed)
 		self.change_x =0
+
+		#food configs
+		self.food_radius = 10
+		self.food_color = green
+		self.food_x_position = 600
+		self.food_y_position = 300
+
