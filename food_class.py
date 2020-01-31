@@ -14,4 +14,5 @@ class Food():
 		self.center =[food_x_position, food_y_position]
 		#if width == 0 is a fill, if width <0 nothing drawn, if width >0 increases width
 		width = 0
-		pygame.draw.circle(self.screen, self.sn_settings.food_color, self.center ,self.sn_settings.food_radius, 0)
+		#pygame.draw.circle(self.screen, self.sn_settings.food_color, self.center ,self.sn_settings.food_radius, 0)
+		pygame.draw.rect(self.screen, self.sn_settings.food_color, [food_x_position, food_y_position ,self.sn_settings.food_radius, self.sn_settings.food_radius])

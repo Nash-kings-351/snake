@@ -15,13 +15,14 @@ class Settings():
 		self.max_buttom = self.screen_height
 		#snake
 		self.snake_color = red
-		self.snake_speed =1
+		self.snake_speed = 30
 		self.snake_rect_x = 600
 		self.snake_rect_y = 300
-		self.snake_width  = 15
-		self.snake_height = 15
+		self.snake_width  = 10
+		self.snake_height = 10
+		self.Length_of_snake = 1
 		#snake default moving up
-		self.change_y = (-1* self.snake_speed)
+		self.change_y = 0
 		self.change_x =0
 
 		#food configs
