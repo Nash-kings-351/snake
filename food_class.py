@@ -9,10 +9,7 @@ class Food():
 		self.sn_settings = sn_settings
 
 	def draw_food(self, food_x_position, food_y_position):
-		"""a circular food"""
+		"""a funtion to draw a square food"""
 		#position of food 
 		self.center =[food_x_position, food_y_position]
-		#if width == 0 is a fill, if width <0 nothing drawn, if width >0 increases width
-		width = 0
-		#pygame.draw.circle(self.screen, self.sn_settings.food_color, self.center ,self.sn_settings.food_radius, 0)
-		pygame.draw.rect(self.screen, self.sn_settings.food_color, [food_x_position, food_y_position ,self.sn_settings.food_radius, self.sn_settings.food_radius])
+		pygame.draw.rect(self.screen, self.sn_settings.food_color, [food_x_position, food_y_position ,self.sn_settings.food_length, self.sn_settings.food_length])

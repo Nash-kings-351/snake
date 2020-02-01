@@ -1,21 +1,26 @@
 import pygame
 
-from pygame.sprite import Sprite
-
-class Snake(Sprite):
+class Snake():
 	def __init__(self, screen, sn_settings):
 
-		super(Snake, self).__init__()
-		
 		self.screen = screen
 		self.sn_settings = sn_settings
 		
 
 	def update(self, sn_settings):
-		#to automate snake movement
-		#change left or right 
+		"""a function to automate snake movement"""
+			#bug to fix later 
+		if (sn_settings.snake_rect_x < 0):
+			sn_settings.snake_rect_x += sn_settings.max_right
+		if (sn_settings.snake_rect_x > sn_settings.max_right):
+			sn_settings.snake_rect_x -= sn_settings.max_right
+		if (sn_settings.snake_rect_y < 0):
+			sn_settings.snake_rect_y += sn_settings.max_buttom
+		if (sn_settings.snake_rect_y > sn_settings.max_buttom):
+			sn_settings.snake_rect_y -= sn_settings.max_buttom
+		#move  left or right 
 		sn_settings.snake_rect_x += sn_settings.change_x
-		#change down or up
+		#move down or up
 		sn_settings.snake_rect_y += sn_settings.change_y
 
 	def draw_snake(self,sn_settings, snake_list):
