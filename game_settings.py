@@ -23,12 +23,15 @@ class Settings():
 		self.snake_height = 10
 		self.Length_of_snake = 1
 		#snake default moving up
-		self.change_y = (-1 * self.snake_height)
+		self.change_y = 0
 		self.change_x =0
+		
 
 		#food configs
 		self.food_length = 10
 		self.food_color = green
 		self.food_x_position = 600
 		self.food_y_position = 300
+		#score settings
+		self.high_score =0
 

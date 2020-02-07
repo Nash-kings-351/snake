@@ -12,6 +12,10 @@ from food_class import Food
 
 import game_functions as Gf
 
+from button import Button
+
+from game_stats import GameStats
+
 def run_game():
 	#initializing game
 	pygame.init()
@@ -31,15 +35,22 @@ def run_game():
 	#to keep track of time while playing the game
 	clock = pygame.time.Clock()
 
-	#start main loop for the game
+	# Make the Play button.
+	play_button = Button(sn_settings, screen, "Play")
+	#game statistics
+	game_stats = GameStats(sn_settings)
+
 	while True:
+		#start main loop for the game
+		if game_stats.game_active == True :
+			#calling update in Snake class to automate snake movement
+			snake.update(sn_settings)
 		#watch for keyboard / mouse input
-		Gf.check_event(screen, sn_settings, snake)
+		Gf.check_event(screen, sn_settings, snake, game_stats, play_button)
 		#displaying screen objects
-		#calling update in Snake class to automate snake movement
-		snake.update(sn_settings)
-		Gf.update(screen, sn_settings, snake_list, snake , food)
-		#rate at which the screen is update
+		
+		Gf.update(screen, sn_settings, snake_list, snake , food, play_button, game_stats)
+			#rate at which the screen is update
 		clock.tick(sn_settings.snake_speed)
 
 run_game()
