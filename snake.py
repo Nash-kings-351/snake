@@ -16,6 +16,8 @@ from button import Button
 
 from game_stats import GameStats
 
+from scoreboard import Scoreboard
+
 def run_game():
 	#initializing game
 	pygame.init()
@@ -25,7 +27,7 @@ def run_game():
 	screen = pygame.display.set_mode((sn_settings.screen_width,sn_settings.screen_height))
 	#creating an object snake so as to access variables values in class Snake
 	snake = Snake(screen, sn_settings)
-	#a list to store values of snake body to teck it movement
+	#a list to store values of snake body to track it's movement
 	snake_list = []
 	##creating an object food so as to access variables values in class Food
 	food =Food(screen, sn_settings)
@@ -34,11 +36,12 @@ def run_game():
 
 	#to keep track of time while playing the game
 	clock = pygame.time.Clock()
-
 	# Make the Play button.
 	play_button = Button(sn_settings, screen, "Play")
 	#game statistics
 	game_stats = GameStats(sn_settings)
+	#game scores
+	sb = Scoreboard(sn_settings, screen, game_stats)
 
 	while True:
 		#start main loop for the game
@@ -46,10 +49,10 @@ def run_game():
 			#calling update in Snake class to automate snake movement
 			snake.update(sn_settings)
 		#watch for keyboard / mouse input
-		Gf.check_event(screen, sn_settings, snake, game_stats, play_button)
+		Gf.check_event(screen, sn_settings, snake, game_stats,snake_list, play_button, sb)
 		#displaying screen objects
 		
-		Gf.update(screen, sn_settings, snake_list, snake , food, play_button, game_stats)
+		Gf.update(screen, sn_settings, snake_list, snake , food, play_button, game_stats, sb)
 			#rate at which the screen is update
 		clock.tick(sn_settings.snake_speed)
 
