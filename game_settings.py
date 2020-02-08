@@ -14,7 +14,7 @@ class Settings():
 		self.max_right = self.screen_width - 10
 		self.max_buttom = self.screen_height - 10
 		#to set snake speed which is the rate which screen updates it self
-		self.snake_speed = 15
+		self.snake_speed = 40
 		#self.dynamic_game_settings()
 	def dynamic_game_settings(self):
 		"""function to intialize dynamic game values"""

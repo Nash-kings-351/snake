@@ -14,7 +14,7 @@ class Snake():
 			sn_settings.snake_rect_x += sn_settings.max_right
 		if (sn_settings.snake_rect_x > sn_settings.max_right):
 			sn_settings.snake_rect_x -= sn_settings.max_right
-		if (sn_settings.snake_rect_y < 0):
+		if (sn_settings.snake_rect_y < 30):
 			sn_settings.snake_rect_y += sn_settings.max_buttom
 		if (sn_settings.snake_rect_y > sn_settings.max_buttom):
 			sn_settings.snake_rect_y -= sn_settings.max_buttom

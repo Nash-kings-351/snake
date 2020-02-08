@@ -17,7 +17,8 @@ class GameStats():
 		"""Initialize statistics that can change during the game."""
 		self.score = 0
 		self.Length_of_snake = 0
-		#self.level = 1
+		self.level = 1
+		self.sn_settings.snake_speed = 40
 	def get_high_score(self):
 		with open(self.file_name,'r+') as file_object:
 			self.high_score=0

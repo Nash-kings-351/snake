@@ -82,7 +82,7 @@ def food_position_generator(sn_settings, food):
 	"""generates random postion of food on the screen"""
 	# there is need to revisit and know this random and randint functions
 	sn_settings.food_x_position = round(random.randrange(0, sn_settings.screen_width-sn_settings.snake_height) / 10.0) * 10.0
-	sn_settings.food_y_position = round(random.randrange(0, sn_settings.screen_height-sn_settings.snake_width) / 10.0) * 10.0
+	sn_settings.food_y_position = round(random.randrange(30, sn_settings.screen_height-sn_settings.snake_width) / 10.0) * 10.0
 
 def checking_food_snake_collision(sn_settings, food, snake_list, game_stats, sb):
    if (sn_settings.food_x_position  == sn_settings.snake_rect_x) and (sn_settings.food_y_position == sn_settings.snake_rect_y):
@@ -92,9 +92,12 @@ def checking_food_snake_collision(sn_settings, food, snake_list, game_stats, sb)
 	   check_high_score(game_stats, sb)
 	   #display intance score
 	   sb.prep_score()
+	   sb.prep_level()
 	   #incrementing snake length once a snake eat food
 	   game_stats.Length_of_snake += 1
-	   game_stats.score += 50
+	   game_stats.score += 10
+	   game_stats.level = int(game_stats.score /10 + 1)
+	   sn_settings.snake_speed *= game_stats.level * 0.2
 	   game_stats.write_high_score(game_stats.high_score)
 def check_play_button(sn_settings, screen, game_stats, snake_list, play_button, sb, mouse_x, mouse_y):
 	"""Start a new game when the player clicks Play."""
@@ -118,6 +121,7 @@ def check_play_button(sn_settings, screen, game_stats, snake_list, play_button, 
 		# Reset the scoreboard images.
 		sb.prep_score()
 		sb.prep_high_score()
+		sb.prep_level()
 
 def Quit_game(sn_settings, game_stats):
 	"""function to quit the game"""
